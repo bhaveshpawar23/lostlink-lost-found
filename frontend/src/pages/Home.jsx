@@ -89,7 +89,9 @@ function Home() {
                     className="hero-item-image"
                     src={
                       item.returnedImage
-                        ? `http://localhost:5000${item.returnedImage}`
+                        ? item.returnedImage.startsWith("http")
+                          ? item.returnedImage
+                          : `http://localhost:5000${item.returnedImage}`
                         : heroImage
                     }
                     alt={item.title}

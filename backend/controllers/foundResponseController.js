@@ -55,7 +55,7 @@ const createFoundResponse = async (req, res) => {
       itemId,
       responderId: req.user.id,
       message,
-      image: req.file ? `/uploads/${req.file.filename}` : "",
+      image: req.file ? req.file.path : "",
     });
 
     res.status(201).json({

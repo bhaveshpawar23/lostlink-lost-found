@@ -215,11 +215,17 @@ function Dashboard() {
                   <div className="item-card-footer">
                     <span>{new Date(item.date).toLocaleDateString()}</span>
 
-                    <Link to={`/items/${item._id}`} className="item-link dashboard-view">
+                    <Link
+                      to={`/items/${item._id}`}
+                      className="item-link dashboard-view"
+                    >
                       View Details →
                     </Link>
 
-                    <Link to={`/items/${item._id}/edit`} className="item-link dashboard-edit">
+                    <Link
+                      to={`/items/${item._id}/edit`}
+                      className="item-link dashboard-edit"
+                    >
                       Edit
                     </Link>
                     <button
@@ -270,11 +276,17 @@ function Dashboard() {
                       <div className="response-image-wrap">
                         <img
                           className="response-image"
-                          src={`http://localhost:5000${response.image}`}
+                          src={
+                            response.image?.startsWith("http")
+                              ? response.image
+                              : `http://localhost:5000${response.image}`
+                          }
                           alt="Found item"
                           onClick={() =>
                             window.open(
-                              `http://localhost:5000${response.image}`,
+                              response.image?.startsWith("http")
+                                ? response.image
+                                : `http://localhost:5000${response.image}`,
                               "_blank",
                             )
                           }
@@ -369,7 +381,11 @@ function Dashboard() {
                       <div className="response-image-wrap">
                         <img
                           className="response-image"
-                          src={`http://localhost:5000${response.image}`}
+                          src={
+                            response.image?.startsWith("http")
+                              ? response.image
+                              : `http://localhost:5000${response.image}`
+                          }
                           alt="Found item"
                           onClick={() =>
                             window.open(
