@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://lostlink-backend-3azu.onrender.com/",
+  baseURL: "https://lostlink-backend-3azu.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
