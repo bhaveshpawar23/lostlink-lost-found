@@ -48,7 +48,7 @@ mongoose
   .then(() => {
     console.log("Connected to MongoDB");
 
-    app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT, "0.0.0.0", () => {
       console.log(`Server running on http://localhost:${process.env.PORT}`);
     });
   })
