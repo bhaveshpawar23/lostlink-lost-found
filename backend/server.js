@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://lostlink-lost-found.vercel.app",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 
   const origin = req.headers.origin;
 
-  if (origin && origin != "http://localhost:5173") {
+  if (origin && origin != "https://lostlink-lost-found.vercel.app") {
     return res.status(403).json({
       message: "Request origin is not allowed",
     });
